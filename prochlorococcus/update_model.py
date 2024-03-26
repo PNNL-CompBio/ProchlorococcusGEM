@@ -3,6 +3,7 @@ import cobra
 import os
 import logging
 from concerto.utils.biolog_help import add_biolog_exchanges
+from prochlorococcus.media import m9_media
 
 log = logging.getLogger()
 log.setLevel(4)
@@ -30,9 +31,17 @@ def update_1(model):
 
 
 def update_model():
+    rxns = {i.id for i in starting_model.reactions}
+    print(rxns)
+    for i in m9_media:
+        if i not in rxns:
+            print(i)
+    # quit()
     # Fix compartments
-    model = update_1(starting_model)
-    write_model(model)
+    # model = update_1(starting_model)
+
+    write_model(starting_model)
+
 
 
 if __name__ == '__main__':
