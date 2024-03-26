@@ -2,7 +2,7 @@ name: Prochloro memote tracking
 
 on:
   push:
-    branches: [ "main"]
+    branches: [ "main", "master"]
 jobs:
   memote-history:
     runs-on: ubuntu-latest
