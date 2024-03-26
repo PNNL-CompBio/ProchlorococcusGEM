@@ -34,6 +34,7 @@ jobs:
         echo "history=history_report.html" >> $GITHUB_ENV
         echo "deployment=gh-pages" >> $GITHUB_ENV
         echo "MEMOTE_LOCATION=results" >> $GITHUB_ENV
+        echo "MEMOTE_MODEL=prochlorococcus/prochlorococcus.xml" >> $GITHUB_ENV
         echo "PYTHONPATH=$PYTHONPATH:concerto_path" >> $GITHUB_ENV
 
 
@@ -43,7 +44,7 @@ jobs:
         git config --global user.name "${GITHUB_ACTOR}"
         git checkout gh-pages
         git checkout ${{ github.ref_name }}
-        memote run --skip-unchanged False
+        memote run
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
